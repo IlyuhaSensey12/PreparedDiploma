@@ -1,9 +1,7 @@
-package com.example.volunteersite.user;
+package com.example.volunteersite.entities.models;
 
-import com.example.volunteersite.user.Role;
+import com.example.volunteersite.entities.enums.Role;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,13 +13,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
+@Table(name = "specialists")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "users")
-public class User implements UserDetails {
+public class Specialist implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,8 +38,13 @@ public class User implements UserDetails {
 
     private String password;
 
+    private String about;
+
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToMany
+    private List<User> users;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

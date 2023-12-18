@@ -1,4 +1,4 @@
-package com.example.volunteersite.auth;
+package com.example.volunteersite.entities.requests;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationResponse {
-    private String token;
-
+public class AuthenticationRequest {
+    private String email;
+    private String password;
 }

@@ -1,8 +1,8 @@
 package com.example.volunteersite.controller;
 
-import com.example.volunteersite.dto.UserDto;
+import com.example.volunteersite.entities.dto.UserDto;
 import com.example.volunteersite.service.UserServiceImpl;
-import com.example.volunteersite.user.User;
+import com.example.volunteersite.entities.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -1,9 +1,9 @@
-package com.example.volunteersite.auth;
+package com.example.volunteersite.entities.requests;
 
 import lombok.Data;
 
 @Data
-public class RegisterOrgRequest {
+public class RegisterPsychoRequest {
     private String firstname;
     private String lastname;
     private String email;

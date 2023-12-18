@@ -1,15 +1,11 @@
 package com.example.volunteersite.service;
 
-import com.example.volunteersite.dto.PsychoDto;
-import com.example.volunteersite.dto.UserDto;
-import com.example.volunteersite.repositories.PsychologistRepository;
+import com.example.volunteersite.entities.dto.SpecialistDto;
+import com.example.volunteersite.repositories.SpecialistRepository;
 import com.example.volunteersite.repositories.UserRepository;
-import com.example.volunteersite.user.Psychologist;
-import com.example.volunteersite.user.User;
+import com.example.volunteersite.entities.models.Specialist;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,21 +13,21 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class PsychologistService {
+public class SpecialistService {
     @Autowired
-    private PsychologistRepository userRepository;
+    private SpecialistRepository userRepository;
     @Autowired
     private UserRepository userRepositoryImpl;
-    public Optional<Psychologist> findByEmail(String email){
+    public Optional<Specialist> findByEmail(String email){
         return userRepository.findByEmail(email);
     }
 
-    public List<Psychologist> findAllUsers(){
+    public List<Specialist> findAllUsers(){
         return userRepository.findAll();
     }
 
-    public void editUser(PsychoDto userDto){
-        Psychologist user = userRepository.findById(userDto.getId());
+    public void editUser(SpecialistDto userDto){
+        Specialist user = userRepository.findById(userDto.getId());
         user.setEmail(userDto.getEmail());
         user.setFirstname(userDto.getFirstname());
         user.setLastname(userDto.getLastname());
@@ -42,10 +38,10 @@ public class PsychologistService {
     }
 
     public void deleteUser(long id){
-        Psychologist user = userRepository.findById(id);
+        Specialist user = userRepository.findById(id);
         userRepository.delete(user);
     }
-    public Psychologist findById(long id){
+    public Specialist findById(long id){
         return userRepository.findById(id);
     }
     

@@ -1,4 +1,4 @@
-package com.example.volunteersite.config;
+package com.example.volunteersite.auth.jwt.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

@@ -1,7 +1,11 @@
 package com.example.volunteersite.controller;
 
-import com.example.volunteersite.auth.*;
-import com.example.volunteersite.auth.RegisterOrgRequest;
+import com.example.volunteersite.auth.service.AuthenticationService;
+import com.example.volunteersite.entities.requests.AuthenticationPsychoRequest;
+import com.example.volunteersite.entities.requests.AuthenticationRequest;
+import com.example.volunteersite.entities.requests.RegisterPsychoRequest;
+import com.example.volunteersite.entities.requests.RegisterRequest;
+import com.example.volunteersite.entities.responses.AuthenticationResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +33,7 @@ public class AuthenticationController {
 
     @PostMapping("/registerPsycho")
     public ResponseEntity<AuthenticationResponse> registerPsycho(
-            @RequestBody RegisterOrgRequest request
+            @RequestBody RegisterPsychoRequest request
     ) throws Exception {
         return ResponseEntity.ok(service.registerPsycho(request));
     }

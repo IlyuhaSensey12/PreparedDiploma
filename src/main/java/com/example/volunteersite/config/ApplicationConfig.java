@@ -1,6 +1,6 @@
 package com.example.volunteersite.config;
 
-import com.example.volunteersite.repositories.PsychologistRepository;
+import com.example.volunteersite.repositories.SpecialistRepository;
 import com.example.volunteersite.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class ApplicationConfig {
     @Autowired
     private final UserRepository repository;
     @Autowired
-    private final PsychologistRepository organizationRepository;
+    private final SpecialistRepository organizationRepository;
 
     @Bean
     public UserDetailsService userDetailsService(){

@@ -1,10 +1,15 @@
-package com.example.volunteersite.auth;
+package com.example.volunteersite.auth.service;
 
-import com.example.volunteersite.config.JwtService;
-import com.example.volunteersite.repositories.PsychologistRepository;
-import com.example.volunteersite.user.Psychologist;
-import com.example.volunteersite.user.Role;
-import com.example.volunteersite.user.User;
+import com.example.volunteersite.auth.jwt.service.JwtService;
+import com.example.volunteersite.entities.requests.AuthenticationPsychoRequest;
+import com.example.volunteersite.entities.requests.AuthenticationRequest;
+import com.example.volunteersite.entities.requests.RegisterPsychoRequest;
+import com.example.volunteersite.entities.requests.RegisterRequest;
+import com.example.volunteersite.entities.responses.AuthenticationResponse;
+import com.example.volunteersite.repositories.SpecialistRepository;
+import com.example.volunteersite.entities.models.Specialist;
+import com.example.volunteersite.entities.enums.Role;
+import com.example.volunteersite.entities.models.User;
 import com.example.volunteersite.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,7 +23,7 @@ public class AuthenticationService {
 
     private final UserRepository repository;
 
-    private final PsychologistRepository psychoRepository;
+    private final SpecialistRepository psychoRepository;
 
     private final PasswordEncoder passwordEncoder;
 
@@ -65,8 +70,8 @@ public class AuthenticationService {
                 .build();
     }
 
-    public AuthenticationResponse registerPsycho(RegisterOrgRequest request) throws Exception {
-        Psychologist organization = new Psychologist();
+    public AuthenticationResponse registerPsycho(RegisterPsychoRequest request) throws Exception {
+        Specialist organization = new Specialist();
         if(repository.findByEmail(request.getEmail()).equals(request.getEmail())){
             throw new Exception("We have same user's and organization's email");
         }
@@ -79,7 +84,7 @@ public class AuthenticationService {
             organization.setEmail(request.getEmail());
             organization.setPhone(request.getPhone());
             organization.setPassword(passwordEncoder.encode(request.getPassword()));
-            organization.setRole(Role.PSYCHOLOGIST);
+            organization.setRole(Role.SPECIALIST);
             organization.setAbout(request.getAbout());
             organization.setCity(request.getCity());
 

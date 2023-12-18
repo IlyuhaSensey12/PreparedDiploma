@@ -1,5 +1,6 @@
-package com.example.volunteersite.user;
+package com.example.volunteersite.entities.models;
 
+import com.example.volunteersite.entities.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,13 +13,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-@Table(name = "psychologists")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Psychologist implements UserDetails {
+@Table(name = "users")
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -37,13 +38,8 @@ public class Psychologist implements UserDetails {
 
     private String password;
 
-    private String about;
-
     @Enumerated(EnumType.STRING)
     private Role role;
-
-    @OneToMany
-    private List<User> users;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

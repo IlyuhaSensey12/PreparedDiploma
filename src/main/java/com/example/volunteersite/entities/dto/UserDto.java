@@ -1,9 +1,5 @@
-package com.example.volunteersite.dto;
+package com.example.volunteersite.entities.dto;
 
-import com.example.volunteersite.user.Role;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.Data;
 
 @Data

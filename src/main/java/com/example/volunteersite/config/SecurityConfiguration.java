@@ -1,12 +1,10 @@
 package com.example.volunteersite.config;
 
-import com.example.volunteersite.user.Role;
-import jakarta.servlet.Filter;
+import com.example.volunteersite.auth.jwt.filer.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -42,7 +40,11 @@ public class SecurityConfiguration {
                         "/api/v1/findPsychoById/{id}",
                         "/api/v1/showAll",
                         "/api/v1/updatePsycho",
-                        "/api/v1/deletePsycho/{id}"
+                        "/api/v1/deletePsycho/{id}",
+                        "/api/v1/addUserOnSpecialist",
+                        "/api/v1/approve",
+                        "/api/v1/addVisit",
+                        "/api/test/submit"
                         )
                 .permitAll()
                 .anyRequest()

@@ -1,17 +1,12 @@
-package com.example.volunteersite.dto;
+package com.example.volunteersite.entities.dto;
 
-import com.example.volunteersite.user.Role;
-import com.example.volunteersite.user.User;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToMany;
+import com.example.volunteersite.entities.models.User;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class PsychoDto {
+public class SpecialistDto {
     private long id;
 
     private String firstname;

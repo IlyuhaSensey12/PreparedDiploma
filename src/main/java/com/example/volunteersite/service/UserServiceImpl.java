@@ -1,12 +1,10 @@
 package com.example.volunteersite.service;
 
-import com.example.volunteersite.dto.UserDto;
+import com.example.volunteersite.entities.dto.UserDto;
 import com.example.volunteersite.repositories.UserRepository;
-import com.example.volunteersite.user.User;
+import com.example.volunteersite.entities.models.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

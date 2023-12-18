@@ -1,4 +1,4 @@
-package com.example.volunteersite.auth;
+package com.example.volunteersite.entities.requests;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
