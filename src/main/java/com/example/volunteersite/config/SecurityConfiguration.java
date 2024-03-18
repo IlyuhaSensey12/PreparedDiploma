@@ -31,24 +31,28 @@ public class SecurityConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/v1/auth/**",
-                        "/api/v1/showAllUsers",
-                        "/api/v1/getUser",
-                        "/api/v1/updateUser",
-                        "/api/v1/deleteUser/{id}",
-                        "/api/v1/getPsycho",
-                        "/api/v1/findPsychoById/{id}",
-                        "/api/v1/showAll",
-                        "/api/v1/updatePsycho",
-                        "/api/v1/deletePsycho/{id}",
-                        "/api/v1/addUserOnSpecialist",
-                        "/api/v1/approve",
-                        "/api/v1/addVisit",
-                        "/api/test/submit"
-                        )
-                .permitAll()
+//                .requestMatchers("/api/v1/auth/**",
+//                        "/api/v1/showAllUsers",
+//                        "/api/v1/getUser",
+//                        "/api/v1/updateUser",
+//                        "/api/v1/deleteUser/{id}",
+//                        "/api/v1/getPsycho",
+//                        "/api/v1/findPsychoById/{id}",
+//                        "/api/v1/showAll",
+//                        "/api/v1/updatePsycho",
+//                        "/api/v1/deletePsycho/{id}",
+//                        "/api/v1/addUserOnSpecialist",
+//                        "/api/v1/approve",
+//                        "/api/v1/addVisit",
+//                        "/api/test/submit",
+//                        "/api/v1/offerReg",
+//                        "/api/v1/chat",
+//                        "/chat.sendMessage",
+//                        "/chat.addUser"
+//                        )
+//                .permitAll()
                 .anyRequest()
-                .authenticated()
+                .permitAll()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -64,7 +68,7 @@ public class SecurityConfiguration {
         UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:5173"));
         corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
                 "Accept", "Jwt-Token", "Authorization", "Origin, Accept", "X-Requested-With",
                 "Access-Control-Request-Method", "Access-Control-Request-Headers"));

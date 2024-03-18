@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://localhost:5173")
 public class VisitController {
     @Autowired
     private VisitService visitService;

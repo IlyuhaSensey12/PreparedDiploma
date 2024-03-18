@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://localhost:5173")
 public class UserController {
     @Autowired
     private UserServiceImpl userService;

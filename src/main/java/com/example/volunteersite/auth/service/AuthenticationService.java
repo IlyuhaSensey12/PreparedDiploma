@@ -12,10 +12,13 @@ import com.example.volunteersite.entities.enums.Role;
 import com.example.volunteersite.entities.models.User;
 import com.example.volunteersite.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.CurrentTimestamp;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 @Service
 @RequiredArgsConstructor
@@ -39,6 +42,7 @@ public class AuthenticationService {
                 .phone(request.getPhone())
                 .city(request.getCity())
                 .role(Role.USER)
+                .dateOfRegistry(new Date(System.currentTimeMillis()))
                 .build();
         if(psychoRepository.findByEmail(request.getEmail()).equals(request.getEmail())){
             throw new Exception("We have same user's and organization's email");

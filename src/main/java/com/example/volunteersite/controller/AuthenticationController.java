@@ -31,19 +31,19 @@ public class AuthenticationController {
         return ResponseEntity.ok(service.authenticate(request));
     }
 
-    @PostMapping("/registerPsycho")
-    public ResponseEntity<AuthenticationResponse> registerPsycho(
-            @RequestBody RegisterPsychoRequest request
-    ) throws Exception {
-        return ResponseEntity.ok(service.registerPsycho(request));
-    }
-
-    @PostMapping("/authenticatePsycho")
-    public ResponseEntity<AuthenticationResponse> authenticatePsycho(
-            @RequestBody AuthenticationPsychoRequest request
-    ){
-        return ResponseEntity.ok(service.authenticatePsycho(request));
-    }
+//    @PostMapping("/registerPsycho")
+//    public ResponseEntity<AuthenticationResponse> registerPsycho(
+//            @RequestBody RegisterPsychoRequest request
+//    ) throws Exception {
+//        return ResponseEntity.ok(service.registerPsycho(request));
+//    }
+//
+//    @PostMapping("/authenticatePsycho")
+//    public ResponseEntity<AuthenticationResponse> authenticatePsycho(
+//            @RequestBody AuthenticationPsychoRequest request
+//    ){
+//        return ResponseEntity.ok(service.authenticatePsycho(request));
+//    }
 
 
 
